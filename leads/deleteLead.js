@@ -1,0 +1,1 @@
+var api= 'https://opticalerp.in:85/api/lead/delete'
