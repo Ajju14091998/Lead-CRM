@@ -190,7 +190,7 @@
                                 <div class="subscription-logout">
                                     <ul>
                                         <li class="pb-0">
-											<a class="dropdown-item" href="login.html">Log Out</a>
+											<a class="dropdown-item" href="/">Log Out</a>
 										</li>
 									</ul>
                                 </div>
@@ -238,7 +238,7 @@
 								</li>
 					              
 							<li>
-								<a href="login.html" ><i class="fe fe-log-out"></i> <span> Logout</span> </a>								
+								<a href="/" ><i class="fe fe-log-out"></i> <span> Logout</span> </a>								
 							</li>
 							<!-- /Main -->
 
@@ -315,10 +315,10 @@
 															  <label>Lead Source</label>
 															  <select class="form-select" id="SourceSelect">
 																<option>Select Lead Source</option>
-																<option>Mr.Akshat</option>
-																<option>Mr.Paresh</option>
-																<option>Mr.Rajesh</option>
-																<option>Mr.Subhash</option>
+																<option value="0">Mr.Akshat</option>
+																<option value="1">Mr.Paresh</option>
+																<option value="2">Mr.Rajesh</option>
+																<option value="3">Mr.Subhash</option>
 															  </select>
 															</div>
 														</div>
@@ -386,7 +386,7 @@
 													</div>
                                                 </form>
                                                 <div class="d-flex justify-content-end">
-                                                    <a class="btn btn btn-primary next" href="#step2" onclick="addLeadPart1()" id="step2-tab" data-bs-toggle="tab" role="tab" aria-controls="step2">Next</a>
+                                                    <a class="btn btn btn-primary next" href="#step2" onclick="nextStep(1)" id="step2-tab" data-bs-toggle="tab" role="tab" aria-controls="step2">Next</a>
 													
                                                 </div>
                                             </div>
@@ -401,10 +401,10 @@
 															  <label>Occupation</label>
 															  <select class="form-select" id="selectOccupation">
 																<option>Select Occupation</option>
-																<option>Job</option>
-																<option>Business</option>
-																<option>Others</option>
-																<option>Professionals</option>
+																<option value="1">Job</option>
+																<option value="2">Business</option>
+																<option value="3">Others</option>
+																<option value="4">Professionals</option>
 															  </select>
 															</div>
 														</div>
@@ -426,7 +426,7 @@
                                                 </form>
                                                 <div class="d-flex justify-content-end">
                                                     <a class="btn btn btn-primary previous me-2"> Previous</a>
-                                                    <a class="btn btn btn-primary next">Continue</a>
+                                                    <a class="btn btn btn-primary next" onclick="nextStep(2)">Continue</a>
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade" role="tabpanel" id="step3" aria-labelledby="step3-tab">
@@ -440,10 +440,10 @@
 															  <label>Assign to</label>
 															  <select class="form-select" id="assignTo">
 																<option>Select Assign to</option>
-																<option>Mr.Akshat</option>
-																<option>Mr.Paresh</option>
-																<option>Mr.Rajesh</option>
-																<option>Mr.Subhash</option>
+																<option value="0">Mr.Akshat</option>
+																<option value="1">Mr.Paresh</option>
+																<option value="2">Mr.Rajesh</option>
+																<option value="3">Mr.Subhash</option>
 															  </select>
 															</div>
 														</div>
@@ -452,10 +452,10 @@
 															<div class="input-block mb-3">
 															  <label>Services</label>
 															  <select class="form-select" id="services">
-																<option>Select Services</option>
-																<option>Insurance</option>
-																<option>Mutual Fund</option>
-																<option>SIP</option>
+																<option value="0">Select Services</option>
+																<option value="1">Insurance</option>
+																<option value="2">Mutual Fund</option>
+																<option value="3">SIP</option>
 															  </select>
 															</div>
 														</div>
@@ -509,7 +509,7 @@
                                                 </form>
                                                 <div class="d-flex justify-content-end">
                                                     <a class="btn btn-primary previous me-2">Previous</a>
-                                                    <a class="btn btn-primary next" data-bs-toggle="modal" onclick="addLead()"data-bs-target="#save_modal">Save</a>
+                                                    <a class="btn btn-primary next" data-bs-toggle="modal" onclick="submitForm()"data-bs-target="#save_modal">Save</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -545,7 +545,7 @@
 
 		<!-- Custom JS -->
 		<script src="./views/assets/js/script.js"></script>
-		<script src="../leads/createLead.js"></script>
+		<script src="../leads/addLead.js"></script>
 		<script src="../countryCityState/selectCity.js"></script>
 		<script src="../countryCityState/selectCountry.js"></script>
 		<script src="../countryCityState/selectState.js"></script>
