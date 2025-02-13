@@ -1,7 +1,24 @@
-let firstName, CreatedByName,leadDate,lastName, source, mobileNo, emailId, whatsappNo,addressLine1, addressLine2;
-let cityName, stateName, countryName,leadSourceName, pincode, occupationName,organisationName, workType, monthlyIncome;
+let firstName,lastName, source, mobileNo, emailId, whatsappNo,addressLine1, addressLine2;
+let cityName, stateName, countryName, pincode, occupationName, workType, monthlyIncome;
 let assignedToName, serviceName, remark;
 
+
+let LeadDate,CreatedByName,LeadSourceName,LeadStatusName,organisationName,OtherSource
+let ServiceDetails=[
+    {
+        id: 0,
+  customerId: 0,
+  serviceId: 0,
+  serviceName: "string",
+  leadId: 0,
+  clientId: 0,
+  isExistingClient: true,
+  remark: "string",
+  assignedTo: 0,
+  assignedToName: "string",
+  isActive: true
+    }
+];
 const postApi = "https://opticalerp.in:85/api/lead/create/create"; // POST API
 
 // 🔵 Navigate to Next Step
@@ -72,8 +89,10 @@ function submitForm() {
 }
 
 // 🔵 Add Lead to API
+// Include Axios via CDN in your HTML
+// <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 function addFunction() {
-    
     const getCookie = (name) => {
         const value = `; ${document.cookie}`;
         const parts = value.split(`; ${name}=`);
@@ -86,6 +105,13 @@ function addFunction() {
         alert("Please enter required fields: First Name, Last Name, and Mobile");
         return;
     }
+    
+    CreatedByName = "sanjay";
+    LeadSourceName = "sanjay";
+    LeadStatusName = "sanjay";
+    organisationName = "sanjay";
+    OtherSource = "sanjay";
+    LeadDate = new Date().toLocaleDateString();
 
     let data = {
         firstName, 
@@ -105,29 +131,43 @@ function addFunction() {
         monthlyIncome, 
         assignedToName, 
         serviceName,  
-        remark
+        remark, 
+        LeadDate,
+        CreatedByName,
+        OtherSource,
+        organisationName,
+        LeadStatusName,
+        LeadSourceName,
+        ServiceDetails
     };
-    
 
-    console.log("Submitting Lead:", data);
-
-    fetch(postApi, {
-        method: "POST",
+    // Using Axios to make the POST request
+    axios.post(postApi, data, {
         headers: {
             "Content-Type": "application/json",
-            'Authorization': `Bearer ${token}` 
-        },
-        body: JSON.stringify(data)
+            "Authorization": `Bearer ${token}`
+        }
     })
-    .then(response => response.json())
-    .then(result => {
-        console.log("Lead Submitted Successfully:", result);
-      
-        // window.location.href = "lead.html";
-        // setTimeout(() => location.reload(), 1000);  
+    .then(response => {
+        console.log('Response status:', response.status);
+        console.log('Response data:', response.data);
+
+        if (response.status === 200) {
+            alert('Lead added successfully!');
+        } else {
+            alert('Something went wrong, please try again.');
+        }
     })
     .catch(error => {
-        console.error("Error submitting lead:", error);
-  
+        if (error.response) {
+            console.error('Error response:', error.response);
+            alert(`Error: ${error.response.data.message}`);
+        } else if (error.request) {
+            console.error('No response received:', error.request);
+            alert('No response from server. Please check your internet connection.');
+        } else {
+            console.error('Axios Error:', error.message);
+            alert('An error occurred. Please try again.');
+        }
     });
 }
