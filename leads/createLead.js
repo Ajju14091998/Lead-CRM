@@ -4,32 +4,6 @@
 
 
 
-// function getStatusBadge(status) {
-//     let statusMap = {
-//         "Follow up": "bg-info",
-//         "Meeting Pending": "bg-warning",
-//         "Meeting Scheduled": "bg-secondary",
-//         "Lead Won": "bg-success"
-//     };
-//     return `<span class="badge ${statusMap[status] || 'bg-dark'}">${status}</span>`;
-// }
-
-// // 🟢 Step 4: लीड डिलीट करणे (DELETE API)
-// function deleteLead(leadId) {
-//     if (!confirm("Are you sure you want to delete this lead?")) return;
-
-//     fetch(`${deleteApi}/${leadId}`, {
-//         method: "DELETE"
-//     })
-//     .then(response => response.json())
-//     .then(result => {
-//         console.log("Lead Deleted:", result);
-//         alert("Lead Deleted Successfully");
-//         fetchLeads();
-//     })
-//     .catch(error => console.error("Error deleting lead:", error));
-// }
-
 
 
 
@@ -84,7 +58,7 @@ function populateTable(leads) {
                 <td><span class="badge bg-info">${lead?.leadStatus}</span></td>
                 <td>
                     <a href="#" class="btn btn-greys me-2"><i class="fe fe-edit"></i></a>
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#delete_modal" class="btn btn-greys me-2"><i class="fe fe-trash-2"></i></a> 
+                    <a href="#" data-bs-toggle="modal"  data-bs-target="#delete_modal" class="btn btn-greys me-2"><i class="fe fe-trash-2"></i></a> 
                     <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="btn btn-greys me-2"><i class="fe fe-paperclip"></i></a>
                 </td>
             </tr>
