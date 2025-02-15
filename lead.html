@@ -472,7 +472,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="input-block mb-3">
                               <label>Assign to</label>
-                              <select class="form-select">
+                              <select class="form-select" id="assignedTo">
                                 <option>Select Assign Person</option>
                                 <option value="0">Mr.Akshat</option>
                                 <option value="1" >Mr.Paresh</option>
@@ -485,27 +485,27 @@
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="input-block mb-3">
                               <label>Attachment</label>
-                              <input id="Attachment" type="file" class="form-control" placeholder="Enter Name">
+                              <input id="Attachment" type="file" class="form-control" placeholder="Enter Name" >
                             </div>
                         </div>
                         
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="input-block mb-3">
                               <label>Next meeting schedule on</label>
-                              <input id="date" type="date" class="form-control" placeholder="Enter Name">
+                              <input  type="date" class="form-control" placeholder="Enter Name" id="followupDate">
                             </div>
                         </div> 
                         
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="input-block mb-3">
                               <label>Schedule Time</label>
-                              <input id="time" type="time" class="form-control" placeholder="Enter Name">
+                              <input type="time" class="form-control" placeholder="Enter Name" id="followupTime">
                             </div>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="input-block mb-3">
                                 <label>Remark</label>
-                                <textarea class="summernote form-control" placeholder="Enter Remark here"
+                                <textarea id="remark" class="summernote form-control" placeholder="Enter Remark here"
                               ></textarea>
                               </div>
                         </div>
@@ -521,6 +521,8 @@
 
                     <div class="row mt-3">
                         <h5>History</h5>
+                       <div id="historytable"></div>
+
                     </div>
                 </div> <!-- end offcanvas-body-->
             </div> <!-- end offcanvas-->
@@ -792,6 +794,8 @@
 		<script src="./views/assets/js/script.js"></script>
     	<script src="../leads/createLead.js"></script>
     	<script src="../Udc/leadstatus.js"></script>
+    	<script src="../Followup/createfollowup.js"></script>
+    	<script src="../Followup/addhistorytable.js"></script>
 
         <script>$(document).ready(function(){
            
