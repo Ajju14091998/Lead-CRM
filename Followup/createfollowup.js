@@ -7,6 +7,7 @@ function followup(id){
     fetchfollowup(id)
     followupTypeId=id;
 }
+// ram
  function submitfollowup() {
  
    
