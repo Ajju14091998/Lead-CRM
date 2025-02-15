@@ -293,29 +293,8 @@
                                                                         <th class="no-sort">Actions</th>
                                                                     </tr>
                                                                 </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td>1</td>
-                                                                        <td>
-                                                                            <h2 class="table-avatar">
-                                                                                <a href=""  data-bs-toggle="offcanvas" data-bs-target="#leadinfo" aria-controls="leadinfo" class="avatar avatar-md me-2 d-flex gap-2">
-                                                                               Add Account</a>
-                                                                            </h2>
-                                                                        </td>
-                                                                        <td>
-                                                                            <div class="progress progress-sm">
-                                                                                 <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                                                            </div>
-                                                                         </td>
-                                                                        <td>John Smith</td>
-                                                                        <td>20 Jan 2025</td>
-                                                                        <td><span class="badge bg-info">Mandate Approved</span></td>
-                                                                        <td class="">
-                                                                            <a href="" class="btn btn-greys me-2"><i class="fe fe-edit"></i></a>
-                                                                            <a href="" data-bs-toggle="modal" data-bs-target="#delete_modal" class="btn btn-greys me-2"><i class="fe fe-trash-2"></i></a> 
-                                                                            <a href=""  data-bs-toggle="modal" data-bs-target="#status_modal" aria-controls="status_modal" class="btn btn-greys me-2"><i class="fe fe-clipboard"></i></a>
-                                                                            </td>
-                                                                    </tr>
+                                                                <tbody id="taskbody">
+                                                                
                                                                 </tbody>
                                                             </table>
                                                         </div>
@@ -576,6 +555,7 @@
 
 		<!-- Custom JS -->
 		<script src="./views/assets/js/script.js"></script>
+        <script src="../task/Tasklist.js"></script>
         <script>$(document).ready(function(){
            
         
