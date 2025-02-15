@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+
     const getapi = "https://opticalerp.in:85/api/udc/getlist";
     const displayOccupation = document.getElementById("selectOccupation");
     const displayService = document.getElementById("services");
@@ -33,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     displayLead.innerHTML += `<option value="${item.id}">${item.value01}</option>`;
                 }
             });
-            console.log(data);
+        
         })
         .catch(error => console.error('Error fetching data:', error));
-});

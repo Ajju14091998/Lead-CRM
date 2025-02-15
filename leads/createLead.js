@@ -36,6 +36,7 @@ function fetchLeads() {
     })
     .catch(error => console.error("Error fetching leads:", error));
 }
+
 function populateTable(leads) {
     let tableBody = document.getElementById("leadTableBody");
     tableBody.innerHTML = ""; // Clear existing data
@@ -58,7 +59,7 @@ function populateTable(leads) {
                 <td><span class="badge bg-info">${lead?.leadStatus}</span></td>
                 <td>
                     <a href="#" class="btn btn-greys me-2"><i class="fe fe-edit"></i></a>
-                    <a href="#" data-bs-toggle="modal"  data-bs-target="#delete_modal" class="btn btn-greys me-2"><i class="fe fe-trash-2"></i></a> 
+                    <a href="#" data-bs-toggle="modal"  onclick="deletelead(${lead?.id})"  data-bs-target="#delete_modal" class="btn btn-greys me-2"><i class="fe fe-trash-2"></i></a> 
                     <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="btn btn-greys me-2"><i class="fe fe-paperclip"></i></a>
                 </td>
             </tr>
@@ -68,6 +69,11 @@ function populateTable(leads) {
 }
 
 
+function deletelead(id){
+    
+    console.log(id);
+    console.log("hello");
+}
 
 
 

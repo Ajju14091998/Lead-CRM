@@ -16,7 +16,7 @@ fetch(api)
 
     data.forEach(element => {
         let val = displayCity.innerHTML
-        displayCity.innerHTML = val + `<option>${element.cityName}</option>`
+        displayCity.innerHTML = val + `<option value =${element.id}>${element.cityName}</option>`
     });
     
 })

@@ -16,6 +16,6 @@ fetch(api)
 
     data.forEach(element => {
         let val = displayState.innerHTML
-        displayState.innerHTML = val + `<option>${element.stateName}</option>` 
+        displayState.innerHTML = val + `<option value =${element.id}>${element.stateName}</option>` 
     });
 })
