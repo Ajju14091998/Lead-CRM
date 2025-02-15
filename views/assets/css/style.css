@@ -26759,3 +26759,51 @@ td .invoice-detail i {
     gap: 20px;
   }
 }
+.timeline {
+  position: relative;
+  padding-left: 40px;
+  margin-top: 20px;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 20px 0;
+  border-left: 2px solid #f1f1f1;
+  padding-left: 20px;
+}
+
+.timeline-item:last-child {
+  border-left: none;
+}
+
+.timeline-icon {
+  position: absolute;
+  left: -8px;
+  top: 20px;
+}
+
+.timeline-icon .dot {
+  width: 15px;
+  height: 15px;
+  background-color: #fbbc05;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.timeline-content {
+  padding-left: 15px;
+}
+
+.timeline-date {
+  color: #757575;
+  font-size: 14px;
+  text-align: right;
+}
+
+.attachment {
+  margin-top: 5px;
+}
+
+.attachment i {
+  margin-right: 5px;
+}
