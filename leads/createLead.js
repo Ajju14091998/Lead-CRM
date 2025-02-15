@@ -58,7 +58,7 @@ function populateTable(leads) {
                 <td>${lead?.mobileNo}</td>
                 <td><span class="badge bg-info">${lead?.leadStatus}</span></td>
                 <td>
-                    <a href="#" class="btn btn-greys me-2"><i class="fe fe-edit"></i></a>
+                    <a href="#" class="btn btn-greys me-2" onclick="editLead(${lead?.id})"><i class="fe fe-edit"></i></a>
                     <a href="#" data-bs-toggle="modal"  onclick="deletelead(${lead?.id})"  data-bs-target="#delete_modal" class="btn btn-greys me-2"><i class="fe fe-trash-2"></i></a> 
                     <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="btn btn-greys me-2"><i class="fe fe-paperclip"></i></a>
                 </td>
@@ -66,15 +66,20 @@ function populateTable(leads) {
         `;
         tableBody.innerHTML += row;
     });
+    $("#leadList").dataTable();
 }
 
 
-function deletelead(id){
+// function deletelead(id){
     
-    console.log(id);
-    console.log("hello");
-}
+//     console.log(id);
+//     console.log("hello");
+// }
 
+// function editLead(id)
+// {
+    
+// }
 
 
 
