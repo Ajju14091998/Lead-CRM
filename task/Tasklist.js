@@ -1,39 +1,39 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetchtask();
+  fetchtask();
 });
 
-
 function fetchtask() {
-    // Get the token from cookies
-    const getCookie = (name) => {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop().split(';').shift();
-    };
+  // Get the token from cookies
+  const getCookie = (name) => {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(";").shift();
+  };
 
-    const token = getCookie('token'); // Get the token from the 'token' cookie
+  const token = getCookie("token"); // Get the token from the 'token' cookie
 
-    fetch("https://opticalerp.in:85/api/taskdetails/getlist", {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}` // Sending token in the header
-        }
+  fetch("https://opticalerp.in:85/api/taskdetails/getlist", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`, // Sending token in the header
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("API Response:", data);
+      populateTable(data);
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log("API Response:", data); 
-        populateTable(data);
-    })
-    .catch(error => console.error("Error fetching leads:", error));
+    .catch((error) => console.error("Error fetching leads:", error));
 }
 
 function populateTable(task) {
-    let taskBody = document.getElementById("taskbody");
-    taskBody.innerHTML = ""; // Clear existing data
-
-    task.forEach((item) => {
-        let row = `
+  let taskBody = document.getElementById("taskbodyLead");
+  let clientBody = document.getElementById("tasktableclient");
+  taskBody.innerHTML = ""; // Clear existing data
+  clientBody.innerHTML="";
+  task.forEach((item) => {
+    let row = `
                <tr>
                                                                         <td>${item?.id}</td>
                                                                         <td>
@@ -57,6 +57,12 @@ function populateTable(task) {
                                                                             </td>
                                                                     </tr>
         `;
-        taskBody.innerHTML += row;
-    });
+        if (item?.taskType === "lead") {
+           
+            taskBody.innerHTML += row;
+          } else if (item?.taskType === "client") {
+            clientBody.innerHTML += row;
+          
+          }
+  });
 }
