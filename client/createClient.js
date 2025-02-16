@@ -53,7 +53,7 @@ function populateTable(leads) {
                 <td><span class="badge bg-info">${lead?.leadStatus}</span></td>
                 <td><span class="badge bg-info">${lead?.leadStatus}</span></td>
                 <td>
-                    <a href="#" class="btn btn-greys me-2"><i class="fe fe-edit"></i></a>
+                     <a href="#" data-bs-toggle="offcanvas" onclick=editLead(${lead?.id}) data-bs-target="#offcanvasEdit" aria-controls="offcanvasRight" class="btn btn-greys me-2"><i class="fe fe-edit"></i></a>
                     <a href="#" data-bs-toggle="modal" data-bs-target="#delete_modal" class="btn btn-greys me-2"><i class="fe fe-trash-2"></i></a> 
                     <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="btn btn-greys me-2"><i class="fe fe-paperclip"></i></a>
                 </td>
