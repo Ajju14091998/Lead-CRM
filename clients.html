@@ -414,27 +414,14 @@
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="input-block mb-3">
                                 <label>Title <span class="text-danger">*</span></label> 
-                                <input type="text" class="form-control" placeholder="Enter Title">
+                                <input id="title" type="text" class="form-control" placeholder="Enter Title">
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="input-block mb-3">
                               <label>Status</label>
-                              <select class="form-select">
-                                <option>Select Status</option>
-                                <option>Insurance Under Process</option>
-                                <option>Mandate Approved</option>
-                                <option>Demat Under Process</option>
-                                <option>Mandate Pending</option>
-                                <option>Case Declined</option>
-                                <option>Reject</option>
-                                <option>Payment Pending</option>
-                                <option>Task Completed</option>
-                                <option>Documnet Received & Under Process</option>
-                                <option>Policy Issued</option>
-                                <option>Insurance Pending</option>
-                                <option>Waiting For Documents</option>
-                                <option>Conversation Pending</option>
+                              <select class="form-select" id="clientSelectTable">
+                              
                               </select>
                             </div>
                         </div>
@@ -442,12 +429,9 @@
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="input-block mb-3">
                               <label>Assign to</label>
-                              <select class="form-select">
-                                <option>Select Assign Person</option>
-                                <option>Mr.Akshat</option>
-                                <option>Mr.Paresh</option>
-                                <option>Mr.Rajesh</option>
-                                <option>Mr.Subhash</option>
+                              <select class="form-select" id="clientassign">
+                              
+                             
                               </select>
                             </div>
                         </div>
@@ -462,20 +446,20 @@
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="input-block mb-3">
                               <label>Next meeting schedule on</label>
-                              <input type="date" class="form-control" placeholder="Enter Name">
+                              <input id="date" type="date" class="form-control" placeholder="Enter Name">
                             </div>
                         </div> 
                         
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="input-block mb-3">
                               <label>Schedule Time</label>
-                              <input type="time" class="form-control" placeholder="Enter Name">
+                              <input id="time" type="time" class="form-control" placeholder="Enter Name">
                             </div>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="input-block mb-3">
                                 <label>Remark</label>
-                                <textarea class="summernote form-control" placeholder="Enter Remark here"
+                                <textarea id="clientremark" class="summernote form-control" placeholder="Enter Remark here"
                               ></textarea>
                               </div>
                         </div>
@@ -483,7 +467,7 @@
                             <button type="reset" class="btn btn-primary cancel me-2" id="followupcancelbtn">
                                 Cancel
                               </button>
-                              <button type="submit" class="btn btn-primary">
+                              <button onclick="submitclientfollowup()" type="submit" class="btn btn-primary">
                                 Submit
                               </button>
                         </div>
@@ -792,7 +776,7 @@
 		<script src="./views/assets/js/script.js"></script>
     
        <script src="./client/createClient.js"></script>
-
+ <script src="../client/clientFollowup.js"></script>
    
         </script>
 </body>
