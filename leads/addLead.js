@@ -1,3 +1,6 @@
+
+
+
 let firstName,
   lastName,
   source,
@@ -34,6 +37,42 @@ let customerId,
   createdBy;
 
 let serviceDetails = [];
+
+
+
+
+
+
+let currentuser = "https://opticalerp.in:85/api/currentuser/getprofile/profile";
+const getCookie = (name) => {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(";").shift();
+};
+document.addEventListener("DOMContentLoaded", function () {
+  fetchcurrentuser()
+
+
+
+ 
+
+});
+async function fetchcurrentuser(){
+   const token = getCookie("token");
+   const sendData = await fetch(currentuser,{method: "GET", headers:{"content-type": "application/json","Authorization":`Bearer ${token}`}})
+   const data = await sendData.json()
+   console.log(data);
+   createdBy = data.id;
+   CreatedByName=data.userName
+  try{
+    
+  }catch(err){
+    console.log(err);
+  }
+}
+
+
+
 const postApi = "https://opticalerp.in:85/api/lead/create/create"; // POST API
 
 // 🔵 Navigate to Next Step
@@ -119,11 +158,10 @@ function submitForm() {
 serviceDetails.push(
   {
     
-    customerId: 1,
+   
     serviceId: serviceId,
     serviceName: serviceName,
-    leadId: 1,
-    clientId: 1,
+    
     isExistingClient: true,
     remark:   remark,
     assignedTo:  assignedTo,
@@ -137,11 +175,7 @@ serviceDetails.push(
 
 
 function addFunction() {
-  const getCookie = (name) => {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(";").shift();
-  };
+ 
 
   const token = getCookie("token"); // Get the token from the 'token' cookie
 
@@ -149,21 +183,20 @@ function addFunction() {
     alert("Please enter required fields: First Name, Last Name, and Mobile");
     return;
   }
-  createdBy=1,
-  CreatedByName = "sanjay";
-  leadStatusName = "sanjay";
-  organisationName = "sanjay";
-  OtherSource = "sanjay";
-  leadDate = "2025-02-15";
-  customerId=1;
+ 
+  leadStatusName = "";
+  organisationName = "";
+  OtherSource = "";
+  leadDate = new Date().toISOString().split('T')[0];
+ 
   tenantId="root"
   leadStatus=1
   let data = {
-    customerId,
+ 
     tenantId,
     firstName,
     lastName,
-    source,
+ 
     mobileNo,
     emailId,cityId,stateId,countryId,occupation,assignedTo ,
     whatsappNo,
@@ -186,8 +219,8 @@ function addFunction() {
     leadStatusName,
     leadSource,
     leadSourceName,
-    serviceDetails,
-    createdBy,leadStatus
+    serviceDetails,leadStatus,
+    createdBy,
   };
 
   // Using Axios to make the POST request

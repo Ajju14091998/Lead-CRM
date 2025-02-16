@@ -20,7 +20,7 @@ let leadDate,
   CreatedByName,
   leadSourceName,
   leadStatusName,
-  organisationName,
+  organisationName,leadId,
   OtherSource;
 let customerId,
   cityId,
@@ -103,7 +103,7 @@ function populateTable(leads) {
 }
 
 function editLead(id) {
-
+  leadId=id;
   const token = getCookie("token"); // Get the token from the 'token' cookie
 
   fetch(`https://opticalerp.in:85/api/lead/getbyleadid/${id}`, {
@@ -318,21 +318,20 @@ function updateForm(){
     serviceId = parseInt(serviceNameElement.value);
     remark = document.getElementById("remarks").value;
     createdBy=1,
-  CreatedByName = "sanjay";
-  leadStatusName = "sanjay";
-  organisationName = "sanjay";
-  OtherSource = "sanjay";
+  CreatedByName = "root";
+  leadStatusName = " ";
+  organisationName = " ";
+  OtherSource = " ";
   leadDate = "2025-02-15";
-  customerId=1;
+  
   tenantId="root"
-  leadStatus=1
     serviceDetails.push(
         {
           
-          customerId: 1,
+        
           serviceId: serviceId,
           serviceName: serviceName,
-          leadId:1002,
+          leadId:leadId,
           clientId: 1,
           isExistingClient: true,
           remark:   remark,

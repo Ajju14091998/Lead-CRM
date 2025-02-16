@@ -1,6 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+
+
+
     fetchPermissions();
+
 });
+
 
 function fetchPermissions() {
     // 🍪 Get Token from Cookie
@@ -28,6 +34,8 @@ function fetchPermissions() {
     .catch(error => console.error("❌ Error Fetching Permissions:", error));
 }
 
+
+
 // 📝 Populate Permissions Table
 function populatePermissionTable(permissions) {
     let tableBody = document.getElementById("permissionTableBody");
@@ -36,7 +44,9 @@ function populatePermissionTable(permissions) {
     permissions.forEach((permission) => {
         let row = `
             <tr>
-                <td>${permission?.moduleName}</td>  <!-- ✅ Module Name -->
+                <td>${permission?.
+                    description
+                    }</td>  <!-- ✅ Module Name -->
                 <td>${permission?.canCreate ? '✅' : '❌'}</td>
                 <td>${permission?.canEdit ? '✅' : '❌'}</td>
                 <td>${permission?.canDelete ? '✅' : '❌'}</td>

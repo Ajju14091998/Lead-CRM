@@ -37,9 +37,10 @@ function populateUserTable(users) {
         let row = `
             <tr>
                 <td>${user?.id}</td>
-                <td>${user?.fullName}</td>
-                <td>${user?.email}</td>
-                <td>${user?.mobile}</td>
+                <td>${user?.firstName} ${user?.lastName}</td>
+              
+                <td>${user?.phoneNumber
+                }</td>
                 <td>${user?.role}</td>
                 <td>
                     <a href="#" class="btn btn-greys me-2" onclick="editUser(${user?.id})"><i class="fe fe-edit"></i></a>
@@ -57,3 +58,4 @@ function populateUserTable(users) {
 // document.getElementById("fetchUsersBtn").addEventListener("click", function () {
 //     fetchUsers();
 // });
+

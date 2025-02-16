@@ -3,6 +3,7 @@ const getapis = "https://opticalerp.in:85/api/users/getlist";
 document.addEventListener('DOMContentLoaded', () => {
     const displayAssign = document.getElementById("assignTo");
     const displayAssigned = document.getElementById("assignedTo");
+    const displayAssignedAdd = document.getElementById("assignToAdd");
     const getCookie = (name) => {
         const value = `; ${document.cookie}`;
         const parts = value.split(`; ${name}=`);
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Clear existing options
             displayAssign.innerHTML = '<option>Select Assign To</option>';
             displayAssigned.innerHTML = '<option>Select Assign To</option>';
+            displayAssignedAdd.innerHTML = '<option>Select Assign To</option>';
           
             // Populate Occupation
         
@@ -30,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                
               displayAssign.innerHTML += `<option value="${item.id}">${item.firstName} ${item.lastName}</option>`;
               displayAssigned.innerHTML += `<option value="${item.id}">${item.firstName} ${item.lastName}</option>`;
+              displayAssignedAdd.innerHTML += `<option value="${item.id}">${item.firstName} ${item.lastName}</option>`;
                 
             });
 

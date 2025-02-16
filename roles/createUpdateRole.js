@@ -37,6 +37,7 @@ function populateRoleTable(roles) {
         let row = `
             <tr>
                 <td>${role?.name}</td>
+                <td class  = "cursor-pointer" onclick= openpermission(${role?.id})>✅Permission</td>
                 <td class="d-flex align-items-center">
                     <a href="#" class="btn btn-greys me-2 popup-toggle"><i
                         class="fa fa-edit me-1" data-bs-toggle="tooltip"
