@@ -239,6 +239,8 @@ for(let i=0;i<serviceNameElement.options.length;i++){
 
 
 
+
+
 function updateTable() {
     let table = document.getElementById("dataTable");
     table.innerHTML = "";

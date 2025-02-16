@@ -1,7 +1,10 @@
 let followupType, followupTypeId, title, followupStatus, assignedTo, followupDate, followupTime, file, attachmentUrl, remark;
 let fileRequest = {};
+let followupname;
 let attachmentUrlelement;
 let addapi = "https://opticalerp.in:85/api/followupdetails/create/create";
+
+
 function followup(id){
     console.log(id);
     fetchfollowup(id)
@@ -12,8 +15,10 @@ function followup(id){
  
    
     title = document.getElementById("title").value;
-    followupElement = document.getElementById("LeadsStatus").value;
-    followupStatus = parseInt(followupElement);
+    followupElement = document.getElementById("LeadsStatus");
+    followupStatus = parseInt(followupElement.value);
+    followupname =  followupElement.options[followupElement.selectedIndex].text;
+    console.log(followupname);
     assignedTo = document.getElementById("assignedTo").value;
     assignedTo = parseInt(assignedTo);
     followupDate = document.getElementById("followupDate").value;
@@ -57,51 +62,54 @@ if (followupDate && followupTime) {
 submiform();
 }
 
-function submiform() {
+async function submiform() {
     const getCookie = (name) => {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop().split(";").shift();
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(";").shift();
     };
-
+  
     const token = getCookie("token"); // Get the token from the 'token' cookie
-    followupType = "lead";
-    
+    const followupType = "lead";
+  
 
+  
+    // Prepare data for the first API
     const data = {
-        followupType,
-        followupTypeId,
-        title,
-        followupStatus,
-        assignedTo,
-        followupDate,
-        followupTime,
-      
-        attachmentUrl,
-        remark
+      followupType,
+      followupTypeId,
+      title,
+      followupStatus,
+      assignedTo,
+      followupDate,
+      followupTime,
+      attachmentUrl,
+      remark
     };
-
-    fetch(addapi, {
+  
+    try {
+      const response = await fetch(addapi, {
         method: "POST",
         headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}` // Include the token for authorization
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}` // Include the token for authorization
         },
         body: JSON.stringify(data) // Convert the data to JSON format
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error("Network response was not ok");
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log("Success:", data);
-    })
-    .catch(error => {
-        console.error("Error:", error);
-    });
-}
+      });
+  
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+  
+      const result = await response.json();
+      console.log("Success:", result);
+  
+      // If "Convert to Client" is selected, hit the second API
+ 
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
 
 
 
@@ -128,7 +136,26 @@ function fetchfollowup(id){
     })
     .catch(error => console.error("Error fetching leads:", error));
 }
-
+function handleFollowupStatusChange() {
+    const followupStatusSelect = document.getElementById("followupStatus");
+    const selectedValue = followupStatusSelect.value;
+    const additionalFieldsContainer = document.getElementById("additionalFields");
+  
+    // Clear any existing fields
+    additionalFieldsContainer.innerHTML = "";
+  
+    if (selectedValue === "convertToClient") {
+      // Add input fields for Services and Description
+      additionalFieldsContainer.innerHTML = `
+        <label for="services">Services:</label>
+        <input type="text" id="services" name="services" required>
+        
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" required>
+      `;
+    }
+  }
+  
 
 function populatefollow(leads) {
     let followlog = document.getElementById("historytable");
@@ -155,3 +182,8 @@ function populatefollow(leads) {
     followlog.innerHTML += timelineItem;
     });
 }
+document.addEventListener("DOMContentLoaded", function () {
+    // Add event listener to the select element
+    const followupStatusSelect = document.getElementById("followupStatus");
+    followupStatusSelect.addEventListener("change", handleFollowupStatusChange);
+  });
