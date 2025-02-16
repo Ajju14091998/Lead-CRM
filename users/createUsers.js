@@ -1,5 +1,8 @@
+
+
 document.addEventListener("DOMContentLoaded", function () {
     fetchUsers();
+    
 });
 
 function fetchUsers() {
@@ -12,8 +15,8 @@ function fetchUsers() {
 
     const token = getCookie('token'); // Get Auth Token
 
-    // ✅ API Call
-    fetch("https://opticalerp.in:85/api/users/getlist", {
+    // ✅ API Call  
+    fetch("https://opticalerp.in:85/api/users/getlistwithroles", {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -36,12 +39,13 @@ function populateUserTable(users) {
     users.forEach((user) => {
         let row = `
             <tr>
-                <td>${user?.id}</td>
-                <td>${user?.firstName} ${user?.lastName}</td>
+                <td>${user?.user?.id}</td>
+                <td>${user?.user?.userName}</td>
               
-                <td>${user?.phoneNumber
+                <td>${user?.user?.phoneNumber
                 }</td>
-                <td>${user?.role}</td>
+                <td>${user?.roleName
+                }</td>
                 <td>
                     <a href="#" class="btn btn-greys me-2" onclick="editUser(${user?.id})"><i class="fe fe-edit"></i></a>
                     <a href="#" class="btn btn-greys me-2" onclick="deleteUser(${user?.id})"><i class="fe fe-trash-2"></i></a>
@@ -53,6 +57,8 @@ function populateUserTable(users) {
 
     // $("#userList").dataTable(); // ✅ DataTable Apply करा
 }
+
+
 
 // // 🛠 Debugging - Button Click वर User Fetch
 // document.getElementById("fetchUsersBtn").addEventListener("click", function () {
