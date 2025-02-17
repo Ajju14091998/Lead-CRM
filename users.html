@@ -510,7 +510,143 @@
 				</div>
 			</div>
 			<!-- /Add User -->
-		
+			<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasEdit" aria-labelledby="offcanvasEditLabel">
+                <div class="offcanvas-header">
+                    <h5 id="offcanvasRightLabel">Edit User</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+					<div class="row">					
+                        <!-- Lightbox -->
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h4 class="card-title mb-0">Edit user</h4>
+                                    <ol class="breadcrumb text-muted mb-0">
+                                        <li class="breadcrumb-item">
+                                            <a href="dashboard.html">Home</a>
+                                        </li>
+                                        <li class="breadcrumb-item">
+                                            <a href="users.html">Settings</a>
+                                        </li>
+                                        <li class="breadcrumb-item text-muted">
+                                            <span>Edit User</span>
+                                        </li>
+                                    </ol>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-6 col-sm-12">
+                                            <div class="input-block mb-3">
+                                                <label>First Name<span class="text-danger">*</span></label> 
+                                                <input id="firstname" type="text" class="form-control" placeholder="Enter First Name">
+                                            </div>
+                                        </div> 
+                                        <div class="col-lg-4 col-md-6 col-sm-12">
+                                            <div class="input-block mb-3">
+                                                <label>Last Name<span class="text-danger">*</span></label> 
+                                                <input id="lastname" type="text" class="form-control" placeholder="Enter Last Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6 col-sm-12">
+                                            <div class="input-block mb-3">
+                                                <label>Email Id<span class="text-danger">*</span></label> 
+                                                <input id="email" type="email" class="form-control" placeholder="Enter Email Id">
+                                            </div>
+                                        </div> 
+                                        <div class="col-lg-4 col-md-6 col-sm-12">
+                                            <div class="input-block mb-3">
+                                                <label>Mobile Number<span class="text-danger">*</span></label> 
+                                                <input id="MobileNo" type="tel" class="form-control" placeholder="Enter Mobile Number">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6 col-sm-12">
+                                            <div class="input-block mb-3">
+                                                <label>WhatsApp Number<span class="text-danger">*</span></label> 
+                                                <input id="whatsappNumber" type="tel" class="form-control" placeholder="Enter WhatsApp Number">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-lg-4 col-md-6 col-sm-12">
+                                            <div class="input-block mb-3">
+                                                <label>Role <span class="text-danger">*</span></label> 
+                                                <select class="form-select" id="RoleSelect">
+                                                 
+                                                   
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6 col-sm-12">
+                                            <div class="input-block mb-3">
+                                                <label>Password<span class="text-danger">*</span></label> 
+                                                <input id="password" type="password" class="form-control" placeholder="Enter Password">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6 col-sm-12">
+                                            <div class="input-block mb-3">
+                                                <label>Confirm Password<span class="text-danger">*</span></label> 
+                                                <input id="confirmpassword" type="password" class="form-control" placeholder="Enter Confirm Password">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6 col-sm-12">
+                                            <div class="input-block mb-3">
+                                                <label>Address Line 1</label>
+                                                <textarea id="add1" class="summernote form-control" placeholder="Enter Address here" rows="1"></textarea>
+                                              </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6 col-sm-12">
+                                            <div class="input-block mb-3">
+                                                <label>Address Line 2</label>
+                                                <textarea id="add2" class="summernote form-control" placeholder="Enter Address here" rows="1"></textarea>
+                                              </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6 col-sm-12">
+                                            <div class="input-block mb-3">
+                                              <label>City</label>
+                                              <select class="form-select" id="displayCity">
+                                            
+                                                
+                                              </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6 col-sm-12">
+                                            <div class="input-block mb-3">
+                                              <label>State</label>
+                                              <select class="form-select" id="displayState">
+                                               
+                                              </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-6 col-sm-12">
+                                            <div class="input-block mb-3">
+                                              <label>Country</label>
+                                              <select class="form-select" id="displayCountry">
+                                        
+                                              
+                                              </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6 col-sm-12">
+                                            <div class="input-block mb-3">
+                                                <label>Pincode <span class="text-danger">*</span></label> 
+                                                <input id="pinCode" type="text" class="form-control" placeholder="Enter Pincode">
+                                            </div>
+                                        </div>
+                                       
+										<div class="d-flex justify-content-end">
+											<a class="btn btn-primary previous me-2">Cancel</a>
+											<a onclick="submituser()" class="btn btn-primary next" data-bs-toggle="modal" data-bs-target="#save_modal">Save</a>
+										</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                 
+
+                </div>
+            </div>
 			<!-- Delete Items Modal -->
 			<div class="modal custom-modal fade" id="delete_modal" role="dialog">
 				<div class="modal-dialog modal-dialog-centered modal-md">
@@ -560,8 +696,13 @@
 			<script src="./views/assets/plugins/apexchart/chart-data.js"></script>
 	
 			<!-- Custom JS -->
-			<script src="./views/assets/js/script.js"></script>
-			<script src="./users/createUsers.js"></script>
+			<script src="../views/assets/js/script.js"></script>
+			<script src="../users/createUsers.js"></script>
+			<script src="../countryCityState/selectCity.js"></script>
+			<script src="../countryCityState/selectCountry.js"></script>
+			<script src="../countryCityState/selectState.js"></script>
+			
+			<script src = "../users/updateUsers.js"></script>
 
 	</body>
 </html>

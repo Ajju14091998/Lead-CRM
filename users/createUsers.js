@@ -47,7 +47,8 @@ function populateUserTable(users) {
                 <td>${user?.roleName
                 }</td>
                 <td>
-                    <a href="#" class="btn btn-greys me-2" onclick="editUser(${user?.id})"><i class="fe fe-edit"></i></a>
+                <a href="#" data-bs-toggle="offcanvas" onclick=edituser(${user?.user?.id}) data-bs-target="#offcanvasEdit" aria-controls="offcanvasRight" class="btn btn-greys me-2"><i class="fe fe-edit"></i></a>
+                   
                     <a href="#" class="btn btn-greys me-2" onclick="deleteUser(${user?.id})"><i class="fe fe-trash-2"></i></a>
                 </td>
             </tr>
