@@ -917,7 +917,7 @@
 								<div class="col-lg-12 col-md-6 col-sm-12">
 									<div class="input-block mb-3">
 										<label>Role Name</label>
-										<input type="text" class="form-control"
+										<input id="rolename" type="text" class="form-control"
 											placeholder="Enter Role Name">
 									</div>
 								</div>
@@ -926,7 +926,7 @@
 						<div class="modal-footer">
 							<button type="button" data-bs-dismiss="modal"
 								class="btn btn-back cancel-btn me-2">Cancel</button>
-							<button type="submit" data-bs-dismiss="modal" class="btn btn-primary paid-continue-btn">Submit</button>
+							<button onclick="submitrole(event)" type="button"  class="btn btn-primary paid-continue-btn">Submit</button>
 						</div>
 					</form>
 				</div>
@@ -986,6 +986,8 @@
 	<!-- Custom JS -->
 	<script src="./views/assets/js/script.js"></script>
 	<script src="./roles/createUpdateRole.js"></script>
+<script src="../roles/addrole.js"></script>
+
 
 </body>
 

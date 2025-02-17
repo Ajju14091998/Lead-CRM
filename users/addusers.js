@@ -108,14 +108,15 @@ async function submitform() {
             },
             body: JSON.stringify(data) // Send data as JSON
         });
-
+      if(senddata.status===200){
+        window.location.href="/users.html?";
+      }
         if (!senddata.ok) {
             // Handle HTTP errors
             throw new Error(`HTTP error! status: ${senddata.status}`);
         }
 
-        const response = await senddata.json();
-        console.log(response);
+       
     } catch (error) {
         console.error('Error:', error);
     }
