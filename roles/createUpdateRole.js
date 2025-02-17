@@ -37,13 +37,14 @@ function populateRoleTable(roles) {
         let row = `
             <tr>
                 <td>${role?.name}</td>
-                <td class  = "cursor-pointer" onclick= openpermission(${role?.id})>✅Permission</td>
-                <td class="d-flex align-items-center">
-                     <a href="#" data-bs-toggle="offcanvas"  data-bs-target="#offcanvasEdit" onclick="updatesrole(${role?.id})" aria-controls="offcanvasRight" class="btn btn-greys me-2"><i class="fe fe-edit"></i></a>
-                    <a href="permission.html" class="btn btn-greys me-2"><i
+                <td>  <a href="permission.html" class="btn btn-greys me-2"><i
                         class="fa fa-shield me-1" data-bs-toggle="tooltip"
                         data-bs-placement="Top" title="Permissions"></i>
-                    </a>
+                    </a></td>
+               
+                <td class="d-flex align-items-center">
+                     <a href="#" data-bs-toggle="offcanvas"  data-bs-target="#offcanvasEdit" onclick="updatesrole(${role?.id})" aria-controls="offcanvasRight" class="btn btn-greys me-2"><i class="fe fe-edit"></i></a>
+                                     <a href="#" data-bs-toggle="modal"    data-bs-target="#delete_modal" class="btn btn-greys me-2"><i class="fe fe-trash-2"></i></a> 
                 </td>
             </tr>
         `;
